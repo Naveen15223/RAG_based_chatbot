@@ -1,76 +1,91 @@
-# Bharathiar University Chatbot - README
+# Bharathiar University Chatbot (RAG-based)
 
 ## Project Overview
-The Bharathiar University Chatbot is an advanced conversational AI system designed to assist students, faculty, and visitors by providing accurate information about university-related queries. Leveraging the power of Retrieval-Augmented Generation (RAG), the chatbot efficiently retrieves and generates responses from a vast repository of university documents, ensuring users receive timely and contextually relevant information.
+
+This project is a Retrieval-Augmented Generation (RAG) based chatbot designed for Bharathiar University. The chatbot is built using LangChain and Streamlit to provide concise and accurate answers in a summary format based on 72+ PDF documents related to the university. The chatbot covers a wide range of topics, including affiliated colleges, departments, courses, fees, admissions, research institutes, scholarships, and more.
 
 ## Features
-- **Conversational AI**: Engages users with natural language understanding and generation.
-- **RAG Framework**: Combines document retrieval with generative AI to enhance response accuracy.
-- **Embedding and Vector Search**: Utilizes advanced embedding models for efficient information retrieval.
-- **Prompt Engineering**: Employs various prompting techniques to handle diverse user queries.
-- **User Interface**: Developed using Streamlit for an intuitive and interactive user experience.
 
-## Project Components
+- **Question-Answering**: Users can ask questions about various aspects of Bharathiar University, and the chatbot provides detailed responses.
+- **Document Retrieval**: The chatbot uses vector embeddings to retrieve relevant information from a large corpus of university-related PDFs.
+- **Summary Generation**: After retrieving information, the chatbot summarizes the content to provide concise answers.
+- **Contextual Search**: Users can explore similar documents and view relevant content through a document similarity search.
 
-### 1. Document Processing
-- **Recursive Character Text Splitter**: Splits large documents into manageable chunks to optimize retrieval.
-- **Embedding Generation**: Uses Google Generative AI Embeddings to convert text into semantic vectors.
-- **FAISS Indexing**: Stores and retrieves documents using FAISS (Facebook AI Similarity Search) for efficient vector-based searches.
+## Technologies Used
 
-### 2. Information Retrieval
-- **RAG Approach**: Retrieves relevant documents based on user queries and enhances them using a generative model.
-- **Embedding Models**: Converts queries and documents into embeddings for similarity matching.
+- **Streamlit**: For building the web interface.
+- **LangChain**: For integrating language models and creating retrieval chains.
+- **FAISS (Facebook AI Similarity Search)**: For efficient document retrieval.
+- **Google Generative AI Embeddings**: For creating embeddings of the document content.
+- **OpenAI's ChatGroq**: For generating conversational responses.
+- **Python**: Core programming language for development.
+- **PyPDFDirectoryLoader**: For loading and processing multiple PDF documents.
 
-### 3. Large Language Model (LLM)
-- **Generative Model Integration**: Uses GPT-based models for generating coherent and contextually appropriate responses.
+## Installation
 
-### 4. Prompt Engineering
-- **Prompt Types**:
-  - **Zero-Shot Prompts**: General queries answered without prior context.
-  - **Few-Shot Prompts**: Queries answered with examples provided to guide the response.
-  - **Chain of Thought Prompts**: Encourages detailed and logical reasoning by breaking down queries into sub-tasks.
-
-### 5. Response Generation
-- **Contextual Response**: Combines retrieved documents with generated content to ensure responses are both accurate and comprehensive.
-
-### 6. User Interface
-- **Streamlit**: Provides a user-friendly interface, allowing users to interact with the chatbot seamlessly.
-
-## Installation and Setup
-1. **Clone the Repository**:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/bharathiar-university-chatbot.git
+   git clone https://github.com/yourusername/university-chatbot.git
    ```
-2. **Navigate to the Project Directory**:
+2. Navigate to the project directory:
    ```bash
-   cd bharathiar-university-chatbot
+   cd university-chatbot
    ```
-3. **Install Dependencies**:
+3. Install the required Python packages:
    ```bash
    pip install -r requirements.txt
    ```
-4. **Run the Application**:
+
+## Usage
+
+1. Run the Streamlit app:
    ```bash
    streamlit run app.py
    ```
+2. Ask a question in the text input field.
+3. The chatbot will retrieve and summarize the relevant information from the university's documents.
+4. Explore additional document details through the document similarity search feature.
 
-## Usage
-1. Open the Streamlit interface in your browser.
-2. Enter your query in the provided input field.
-3. Receive a detailed response, retrieved and generated by the chatbot using the RAG framework.
+## Files
 
-## Future Enhancements
-- **Expanded Knowledge Base**: Integration of additional university documents and FAQs.
-- **Multilingual Support**: Adding support for multiple languages to cater to a diverse user base.
-- **Advanced NLP Features**: Incorporation of more sophisticated NLP techniques for better understanding and response generation.
-- **Mobile Application**: Developing a mobile-friendly version of the chatbot.
+- **app.py**: Contains the Streamlit application code for handling user input, retrieving documents, and generating responses.
+- **preprocessing.py**: Handles data preprocessing, including loading and splitting PDF documents and creating vector embeddings.
+- **test.py**: Provides functionality for evaluating the model (if required).
+- **requirements.txt**: Lists all the dependencies required for the project.
 
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
+## Key Functionalities
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+- **PDF Document Processing**: Loads and processes over 72 PDFs related to Bharathiar University.
+- **Vector Embedding and Retrieval**: Uses FAISS and Google Generative AI Embeddings to create and search vector embeddings of the documents.
+- **Conversational AI**: Utilizes ChatGroq for generating human-like conversational responses.
+- **Summary Generation**: Generates concise summaries of the retrieved information for user questions.
+
+## How It Works
+
+1. **Document Loading**: Loads all PDF documents from the specified directory.
+2. **Vector Embedding**: Creates vector embeddings for document chunks using Google Generative AI Embeddings.
+3. **User Interaction**: Users input their questions through the Streamlit interface.
+4. **Retrieval and Response**: The chatbot retrieves relevant document content, generates a detailed answer, and provides a summary.
+5. **Document Similarity Search**: Offers an expandable section to view related documents and their content.
+
+## Target Audience
+
+This project is designed for:
+
+- **Prospective Students**: To get detailed information about courses, admissions, and scholarships.
+- **Current Students and Faculty**: To find information about departments, research institutes, and faculty.
+- **University Administration**: To assist in providing automated responses to common inquiries.
+- **Researchers**: To access a summarized view of research and academic information available in the university documents.
 
 ## Acknowledgements
-Special thanks to the development team and Bharathiar University for their support and collaboration in this project.
+
+- [LangChain](https://www.langchain.com/)
+- [Streamlit](https://streamlit.io/)
+- [FAISS](https://github.com/facebookresearch/faiss)
+- [Google Generative AI](https://cloud.google.com/generative-ai)
+- [OpenAI ChatGroq](https://www.openai.com/)
+
+---
+
+This project exemplifies the integration of RAG techniques to enhance information retrieval and summarization, providing a seamless user experience for querying university-related data.
 
